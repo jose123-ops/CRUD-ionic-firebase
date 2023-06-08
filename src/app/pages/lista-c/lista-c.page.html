@@ -1,0 +1,59 @@
+<app-header titulo="Clientes"></app-header>
+
+<ion-content [fullscreen]="true">
+
+
+
+  <ion-list>
+    <ion-item><ion-button color="tertiary" slot="end" size="small">agregar</ion-button></ion-item>
+    <ion-item>
+      <ion-label>
+
+        <h1>Manuel</h1>
+        <p>manuel2@gmailk.com</p>
+      </ion-label>
+      <ion-buttons slot="end" size="small"   >
+        <ion-button (click)="mostrarPop($event) ">agregar</ion-button>
+      </ion-buttons>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+
+        <h1>Sara</h1>
+        <p>Sara2@gmailk.com</p>
+
+      </ion-label>
+
+      <ion-buttons slot="end" size="small"   >
+        <ion-button (click)="mostrarPop($event)"  >agregar</ion-button>
+      </ion-buttons>
+
+    </ion-item>
+    <ion-item>
+
+      <ion-label>
+        <h1>Karla</h1>
+        <p>Karla2@gmailk.com</p>
+
+      </ion-label>
+
+      <ion-buttons slot="end" size="small" name="star">
+        <ion-button (click)="mostrarPop($event)">agregar</ion-button>
+
+      </ion-buttons>
+
+
+    </ion-item>
+
+
+
+
+
+
+
+
+  </ion-list>
+
+</ion-content>
