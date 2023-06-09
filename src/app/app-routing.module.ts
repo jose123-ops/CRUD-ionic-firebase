@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'lista-c',
     loadChildren: () => import('./pages/lista-c/lista-c.module').then( m => m.ListaCPageModule)
   },
+  {
+    path: 'agregar-c',
+    loadChildren: () => import('./pages/agregar-c/agregar-c.module').then( m => m.AgregarCPageModule)
+  },
 ];
 
 @NgModule({

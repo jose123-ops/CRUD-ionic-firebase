@@ -5,7 +5,7 @@
 
 
   <ion-list>
-    <ion-item><ion-button color="tertiary" slot="end" size="small">agregar</ion-button></ion-item>
+    <ion-item><ion-button (click)="abrirModal()"  color="tertiary" slot="end" size="small" >agregar</ion-button></ion-item>
     <ion-item>
       <ion-label>
 
@@ -13,7 +13,13 @@
         <p>manuel2@gmailk.com</p>
       </ion-label>
       <ion-buttons slot="end" size="small"   >
-        <ion-button (click)="mostrarPop($event) ">agregar</ion-button>
+        <label>
+        <ion-button (click)="mostrarPop($event) ">
+
+          <img src="/assets/icon/iconsP1.png" >
+
+        </ion-button>
+      </label>
       </ion-buttons>
 
     </ion-item>
@@ -27,7 +33,9 @@
       </ion-label>
 
       <ion-buttons slot="end" size="small"   >
-        <ion-button (click)="mostrarPop($event)"  >agregar</ion-button>
+        <ion-button (click)="mostrarPop($event)"  >
+          <img src="/assets/icon/iconsP1.png" >
+        </ion-button>
       </ion-buttons>
 
     </ion-item>
@@ -40,7 +48,9 @@
       </ion-label>
 
       <ion-buttons slot="end" size="small" name="star">
-        <ion-button (click)="mostrarPop($event)">agregar</ion-button>
+        <ion-button (click)="mostrarPop($event)">
+          <img src="/assets/icon/iconsP1.png" >
+        </ion-button>
 
       </ion-buttons>
 

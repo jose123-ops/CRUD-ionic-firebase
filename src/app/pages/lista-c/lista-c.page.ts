@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, PopoverController } from '@ionic/angular';
+import { ModalController, NavController, PopoverController } from '@ionic/angular';
 import { PopInfoComponent } from 'src/app/componente/pop-info/pop-info.component';
+import { AgregarCPage } from '../agregar-c/agregar-c.page';
 
 @Component({
   selector: 'app-lista-c',
@@ -12,7 +13,8 @@ export class ListaCPage implements OnInit {
   miFecha: any;
 
 
-  constructor( public popoverController: PopoverController) {
+  constructor( public popoverController: PopoverController,
+               private modalController: ModalController) {
 
    }
 
@@ -25,9 +27,16 @@ export class ListaCPage implements OnInit {
       component: PopInfoComponent,
       event: evento,
       mode: 'ios',
-      backdropDismiss: false
+      // backdropDismiss: false
     });
     return await popover.present();
+  }
+
+   async abrirModal(){
+   const modal=await this.modalController.create({
+      component:AgregarCPage
+    });
+    await modal.present()
   }
 
 
