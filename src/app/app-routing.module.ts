@@ -8,7 +8,7 @@ const routes: Routes = [
     redirectTo: 'lista-c',
     pathMatch: 'full'
   },
-  
+
   {
     path: 'lista-c',
     loadChildren: () => import('./pages/lista-c/lista-c.module').then( m => m.ListaCPageModule)
@@ -21,6 +21,8 @@ const routes: Routes = [
     path: 'editar-c',
     loadChildren: () => import('./pages/editar-c/editar-c.module').then( m => m.EditarCPageModule)
   },
+
+
 
 ];
 

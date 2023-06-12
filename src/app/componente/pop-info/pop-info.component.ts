@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { EditarCPage } from 'src/app/pages/editar-c/editar-c.page';
+import { ClienteSService } from 'src/app/services/cliente-s.service';
 
 @Component({
   selector: 'app-pop-info',
@@ -9,7 +10,8 @@ import { EditarCPage } from 'src/app/pages/editar-c/editar-c.page';
 })
 export class PopInfoComponent  implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController,
+              private database :ClienteSService) { }
 
   ngOnInit() {}
 
@@ -21,4 +23,8 @@ export class PopInfoComponent  implements OnInit {
    }
 
 
-}
+
+  }
+
+
+

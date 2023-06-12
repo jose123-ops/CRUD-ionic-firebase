@@ -49,11 +49,11 @@ export class EditarCPage implements OnInit {
   this.datos.id =id;
 
    this.database.ActualizarC(this.datos , path, id).then((res)=>{
-    console.log(' con exito ->'); 
-   
+    console.log(' con exito ->');
+
    } );
 
-   
+
   }
 
 

@@ -14,12 +14,14 @@ import { PopInfoComponent } from './pop-info/pop-info.component';
   exports:[
 
     HeaderComponent,
-    PopInfoComponent
+    PopInfoComponent,
+
     ],
 
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+
   ]
 })
 export class ComponenteModule { }

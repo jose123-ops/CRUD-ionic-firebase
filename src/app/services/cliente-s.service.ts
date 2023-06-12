@@ -30,13 +30,19 @@ getId(){
 
 
   ActualizarC(data: any, path: string, id: string) {
-    const collection = this.firestore.collection(path);
-    return collection.doc(id).update(data);
+  return this.firestore.collection(path).doc(id).update(data)
 
   }
 
+
+  EliminarC(data: any, path: string, id: string) {
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).delete();
 }
 
+
+
+}
 
 
 

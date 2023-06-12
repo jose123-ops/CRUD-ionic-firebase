@@ -1,37 +1,56 @@
-<app-header titulo="Clientes"></app-header>
+<!-- <app-header color="warning" titulo="Clientes"></app-header> -->
 
-<ion-content [fullscreen]="true">
+<ion-content padding [fullscreen]="true">
+  <ion-card mode="ios">
+    <ion-item color="danger">
 
-  <ion-list >
-    <ion-item>
-      <ion-button (click)="abrirModal()"  color="tertiary" slot="end" size="small" >
-        <ion-icon name="add"></ion-icon>
-      </ion-button>
+      <ion-label>Clientes</ion-label>
+
     </ion-item>
 
-  </ion-list >
-    <ion-list class *ngFor="let VerCliente of VerCliente">
+    <ion-img src="/assets/banner.jpg"></ion-img>
+
+
+    <ion-fab class="posicion"  vertical="bottom" horizontal="end" >
+      <ion-fab-button  (click)="abrirModal()" color="tertiary" size="default" >
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-card>
+
+  <ion-list>
+
+
     <ion-item>
-      
+
+
+
+    </ion-item>
+
+  </ion-list>
+  <ion-list class *ngFor="let VerCliente of VerCliente">
+    <ion-item>
+
       <ion-label>
 
         <h1>{{VerCliente.nombre}}</h1>
         <p>{{VerCliente.correo}}</p>
 
       </ion-label>
-      <ion-buttons slot="end" size="small"   >
+      <ion-buttons slot="end" size="small">
         <label>
-        <ion-button (click)="mostrarPop($event) ">
+          <ion-button (click)="mostrarPop($event) ">
 
-          <img src="/assets/icon/iconsP1.png" >
+            <img src="/assets/icon/iconsP1.png">
 
-        </ion-button>
-      </label>
+          </ion-button>
+        </label>
 
       </ion-buttons>
 
     </ion-item>
 
-  
-</ion-list>
+
+  </ion-list>
 </ion-content>

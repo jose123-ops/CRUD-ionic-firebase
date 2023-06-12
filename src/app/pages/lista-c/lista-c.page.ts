@@ -17,7 +17,7 @@ export class ListaCPage implements OnInit {
 VerCliente : ClienteI[]= [];
 
   miFecha: any;
-  
+
 
 
   constructor( public popoverController: PopoverController,
@@ -52,7 +52,6 @@ VerCliente : ClienteI[]= [];
 
   getClienteV(){
 this.database.getCollection<ClienteI>('Clientes').subscribe(res=>{
-  console.log('lo que esta escrito',res)
   this.VerCliente = res;
 })
   }

@@ -20,7 +20,7 @@ export class AgregarCPage implements OnInit {
     correo: '',
     fecha: ''
   }
-  
+
 
   constructor(private ModalController:ModalController,
               private database:ClienteSService,
@@ -28,7 +28,7 @@ export class AgregarCPage implements OnInit {
 
   ngOnInit() {
 
-    
+
   }
  salir(){
   this.ModalController.dismiss();
@@ -41,9 +41,9 @@ this.interaccion.presentLoading('guardando....')
   const path = 'Clientes';
   const id = this.database.getId();
   this.datos.id =id;
-   
+
   this.database.crearC(this.datos , path, id).then((res)=>{
-    console.log('guardado con exito ->'); 
+
     this.interaccion.cerrarLoading()
     this.interaccion.presentToast('guardado con exito')
   })
