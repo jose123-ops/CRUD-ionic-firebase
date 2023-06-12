@@ -8,10 +8,7 @@ const routes: Routes = [
     redirectTo: 'lista-c',
     pathMatch: 'full'
   },
-  {
-    path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  },
+  
   {
     path: 'lista-c',
     loadChildren: () => import('./pages/lista-c/lista-c.module').then( m => m.ListaCPageModule)
@@ -20,6 +17,11 @@ const routes: Routes = [
     path: 'agregar-c',
     loadChildren: () => import('./pages/agregar-c/agregar-c.module').then( m => m.AgregarCPageModule)
   },
+  {
+    path: 'editar-c',
+    loadChildren: () => import('./pages/editar-c/editar-c.module').then( m => m.EditarCPageModule)
+  },
+
 ];
 
 @NgModule({

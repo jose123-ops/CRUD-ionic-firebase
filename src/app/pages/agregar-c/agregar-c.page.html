@@ -13,36 +13,36 @@
   <ion-list>
     <ion-item>
 <ion-label position="floating">Nombre</ion-label>
-<ion-input type="text" ></ion-input>
+<ion-input [(ngModel)]="datos.nombre"  type="text" ></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Apellido</ion-label>
-<ion-input type="text" class="redondeado"  ></ion-input>
+<ion-input [(ngModel)]="datos.apellido" type="text" class="redondeado"  ></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Direccion</ion-label>
-<ion-input type="text"  ></ion-input>
+<ion-input [(ngModel)]="datos.direccion" type="text"  ></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Cedula</ion-label>
-<ion-input placeholder="00-000000-0000A" type="text"></ion-input>
+<ion-input [(ngModel)]="datos.cedula" placeholder="00-000000-0000A" type="text"></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Correo electrinico</ion-label>
-<ion-input placeholder="jjjj123@gmail.com" type="text"></ion-input>
+<ion-input [(ngModel)]="datos.correo"placeholder="jjjj123@gmail.com" type="text"></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Fecha</ion-label>
-<ion-input type="text"  ></ion-input>
+<ion-input [(ngModel)]="datos.fecha" type="text"></ion-input>
 </ion-item>
 
   </ion-list>
-  <ion-button  class="top" size="default">guardar
+  <ion-button (click)="crearcliente()"  class="top" size="default">guardar
     <ion-icon slot="start" name="save-outline"></ion-icon>
   </ion-button>
 

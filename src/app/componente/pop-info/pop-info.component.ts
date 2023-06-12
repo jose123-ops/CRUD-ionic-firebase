@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { EditarCPage } from 'src/app/pages/editar-c/editar-c.page';
 
 @Component({
   selector: 'app-pop-info',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopInfoComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {}
+
+  async abrirModalE(){
+    const modal=await this.modalController.create({
+       component:EditarCPage
+     });
+     await modal.present()
+   }
+
 
 }
