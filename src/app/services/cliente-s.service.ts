@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClienteSService {
-  
+
 
   constructor(private firestore:AngularFirestore) { }
 
-
+// FUNCION PARA CREAR UN CLIENTE
   crearC(data: any, path: string, id: string) {
-    
+
     const collection = this.firestore.collection(path);
     return collection.doc(id).set(data);
 }
@@ -32,7 +32,7 @@ getId(){
   ActualizarC(data: any, path: string, id: string) {
     const collection = this.firestore.collection(path);
     return collection.doc(id).update(data);
-  
+
   }
 
 }
