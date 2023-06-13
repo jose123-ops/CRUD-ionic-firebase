@@ -8,6 +8,7 @@ import { ListaCPageRoutingModule } from './lista-c-routing.module';
 import { ListaCPage } from './lista-c.page';
 import { ComponenteModule } from 'src/app/componente/componente.module';
 import { PopInfoComponent } from '../../componente/pop-info/pop-info.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
 
@@ -17,7 +18,8 @@ import { PopInfoComponent } from '../../componente/pop-info/pop-info.component';
     IonicModule,
     ListaCPageRoutingModule,
     ComponenteModule,
-    
+    PipesModule
+
   ],
   declarations: [ListaCPage],
 

@@ -10,26 +10,25 @@
 
     <ion-img src="/assets/banner.jpg"></ion-img>
 
+    <ion-searchbar placeholder="buscar" animated="true" (ionChange)="BuscarCliente($event)" debounce="250">
 
-    <ion-fab class="posicion"  vertical="bottom" horizontal="end" >
-      <ion-fab-button  (click)="abrirModal()" color="tertiary" size="default" >
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+    </ion-searchbar>
 
+    <ion-item>
+      <ion-fab class="posicion"  vertical="bottom" horizontal="end" >
+        <ion-fab-button  (click)="abrirModal()" color="tertiary" size="small" >
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ion-item>
   </ion-card>
+
+
 
   <ion-list>
 
-
-    <ion-item>
-
-
-
-    </ion-item>
-
   </ion-list>
-  <ion-list class *ngFor="let VerCliente of VerCliente">
+  <ion-list class *ngFor="let VerCliente of VerCliente | filtro:BuscarClientes">
     <ion-item>
 
       <ion-label>
@@ -40,7 +39,7 @@
       </ion-label>
       <ion-buttons slot="end" size="small">
         <label>
-          <ion-button (click)="mostrarPop($event) ">
+          <ion-button (click)="mostrarPop($event,VerCliente.id) ">
 
             <img src="/assets/icon/iconsP1.png">
 

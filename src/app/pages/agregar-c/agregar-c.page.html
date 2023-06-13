@@ -1,9 +1,11 @@
 <ion-header>
 
-  <ion-buttons (click)="salir()" slot="start" color="secundary">
-    <ion-back-button text="regresar" defaultHref="/">
-    </ion-back-button>
-    <ion-title>Agregar Clientes</ion-title>
+  <ion-buttons (click)="salir()" slot="start" color="danger">
+
+    <ion-button  defaultHref="/">
+      <ion-icon name="close-outline" ></ion-icon>
+    </ion-button>
+    <ion-title >Agregar Clientes</ion-title>
   </ion-buttons>
 </ion-header>
 
@@ -38,7 +40,11 @@
 
 <ion-item>
 <ion-label position="floating">Fecha</ion-label>
-<ion-input [(ngModel)]="datos.fecha" type="text"></ion-input>
+<ion-input [(ngModel)]="datos.fecha" type="date">
+  <!-- <ion-datetime ></ion-datetime> -->
+
+
+</ion-input>
 </ion-item>
 
   </ion-list>

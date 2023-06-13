@@ -1,13 +1,18 @@
 <!-- <p> -->
 <ion-list class="center">
     <ion-item >
-
-  <ion-buttons (click)="EliminarC()">
+      <!-- (click)="EliminarC()" -->
+  <ion-buttons  id="present-alert">
     <ion-button >
 
         <img src="/assets/icon/icons.gif" >
 
     </ion-button>
+
+    <ion-alert trigger="present-alert" header="Eliminando Cliente" message="Desea Eliminar"
+    [buttons]="alertButton"></ion-alert>
+
+
 
     <ion-button (click)="abrirModalE()">
 
@@ -27,5 +32,8 @@
     </ion-item>
 
   </ion-list>
+
+
+
 
 <!-- </p> -->
