@@ -22,8 +22,7 @@ VerCliente : ClienteI[]= [];
 
   constructor( public popoverController: PopoverController,
                private modalController: ModalController,
-              // private firestore:ClienteSService,
-              private database :ClienteSService
+               private database :ClienteSService
               ) {
 
    }
@@ -55,5 +54,8 @@ this.database.getCollection<ClienteI>('Clientes').subscribe(res=>{
   this.VerCliente = res;
 })
   }
+
+  
+
 
 }

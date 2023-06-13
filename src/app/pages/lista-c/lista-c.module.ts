@@ -16,7 +16,8 @@ import { PopInfoComponent } from '../../componente/pop-info/pop-info.component';
     FormsModule,
     IonicModule,
     ListaCPageRoutingModule,
-    ComponenteModule
+    ComponenteModule,
+    
   ],
   declarations: [ListaCPage],
 
