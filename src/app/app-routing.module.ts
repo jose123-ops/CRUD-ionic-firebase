@@ -20,7 +20,11 @@ const routes: Routes = [
   {
     path: 'editar-c',
     loadChildren: () => import('./pages/editar-c/editar-c.module').then( m => m.EditarCPageModule)
+  },  {
+    path: 'ver-cliente',
+    loadChildren: () => import('./pages/ver-cliente/ver-cliente.module').then( m => m.VerClientePageModule)
   },
+
 
 
 

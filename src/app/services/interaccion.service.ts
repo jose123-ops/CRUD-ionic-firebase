@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, PopoverController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +9,10 @@ export class InteraccionService {
   loading:any;
 
   constructor(public toastController: ToastController,
-              public loadingController: LoadingController) 
+              public loadingController: LoadingController,
+              public PopoverController: PopoverController)
               {
-                
+
               }
 
   async presentToast(mensaje:string) {
@@ -25,16 +26,20 @@ export class InteraccionService {
 
   async presentLoading(mensaje:string) {
     this.loading = await this.loadingController.create({
-      message:mensaje, 
+      message:mensaje,
     });
     await this.loading.present();
-    
+
   }
 
 
   async cerrarLoading() {
    await this.loading.dismiss();
   }
+
+  async Cerrarpopover() {
+    await this.PopoverController.dismiss();
+      }
 
 }
 

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController, PopoverController } from '@ionic/angular';
+import { ModalController, NavController, PopoverController, LoadingController } from '@ionic/angular';
 import { PopInfoComponent } from 'src/app/componente/pop-info/pop-info.component';
 import { AgregarCPage } from '../agregar-c/agregar-c.page';
 import { ClienteSService } from 'src/app/services/cliente-s.service';
 import { ClienteI } from 'src/app/commons/interface/interfaceC';
 import { EditarCPage } from '../editar-c/editar-c.page';
+import { InteraccionService } from '../../services/interaccion.service';
 
 @Component({
   selector: 'app-lista-c',
@@ -22,7 +23,8 @@ export class ListaCPage implements OnInit {
 
   constructor(public popoverController: PopoverController,
     private modalController: ModalController,
-    private database: ClienteSService
+    private database: ClienteSService,
+    private InteraccionService:InteraccionService
   ) {
 
   }
@@ -53,8 +55,12 @@ export class ListaCPage implements OnInit {
   }
 
   getClienteV() {
+    this.InteraccionService.presentLoading('Espere por favor')
+
     this.database.getCollection<ClienteI>('Clientes').subscribe(res => {
       this.VerCliente = res;
+
+    this.InteraccionService.cerrarLoading()
       // this.BuscarClientes = res;
     })
 

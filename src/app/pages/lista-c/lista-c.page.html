@@ -23,15 +23,10 @@
     </ion-item>
   </ion-card>
 
+  <ion-list *ngIf="VerCliente.length > 0" >
+    <ion-item class *ngFor="let VerCliente of VerCliente | filtro:BuscarClientes">
 
-
-  <ion-list>
-
-  </ion-list>
-  <ion-list class *ngFor="let VerCliente of VerCliente | filtro:BuscarClientes">
-    <ion-item>
-
-      <ion-label>
+      <ion-label >
 
         <h1>{{VerCliente.nombre}}</h1>
         <p>{{VerCliente.correo}}</p>
@@ -52,4 +47,11 @@
 
 
   </ion-list>
+
+  <ion-title  class="top" *ngIf="VerCliente.length === 0">
+    <h4>sin registro</h4>
+  </ion-title>
+
+
+
 </ion-content>

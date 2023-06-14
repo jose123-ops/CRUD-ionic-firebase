@@ -29,8 +29,11 @@ getId(){
   }
 
 
+
+
   ActualizarC(data: any, path: string, id: string) {
-  return this.firestore.collection(path).doc(id).update(data)
+  const collection = this.firestore.collection(path);
+  return collection.doc(id).update(data)
 
   }
 

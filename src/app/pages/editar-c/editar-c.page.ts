@@ -10,6 +10,7 @@ import { ClienteSService } from 'src/app/services/cliente-s.service';
   styleUrls: ['./editar-c.page.scss'],
 })
 export class EditarCPage implements OnInit {
+
   datos: ClienteI= {
     id:'',
     nombre: '',

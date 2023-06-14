@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { ClienteI } from 'src/app/commons/interface/interfaceC';
 import { ClienteSService } from 'src/app/services/cliente-s.service';
 import { InteraccionService } from 'src/app/services/interaccion.service';
@@ -21,10 +21,13 @@ export class AgregarCPage implements OnInit {
     fecha: ''
   }
 
-
   constructor(private ModalController:ModalController,
               private database:ClienteSService,
-              private interaccion:InteraccionService) { }
+              private interaccion:InteraccionService,
+         ) {
+
+
+              }
 
   ngOnInit() {
 
