@@ -1,4 +1,4 @@
-<!-- <app-header color="warning" titulo="Clientes"></app-header> -->
+
 
 <ion-content padding [fullscreen]="true">
   <ion-card mode="ios">
@@ -26,15 +26,18 @@
   <ion-list *ngIf="VerCliente.length > 0" >
     <ion-item class *ngFor="let VerCliente of VerCliente | filtro:BuscarClientes">
 
-      <ion-label >
+      <ion-label  >
 
         <h1>{{VerCliente.nombre}}</h1>
         <p>{{VerCliente.correo}}</p>
+        <p >{{VerCliente.fecha.toMillis() | date:'medium'}}</p>
+
+
 
       </ion-label>
       <ion-buttons slot="end" size="small">
         <label>
-          <ion-button (click)="mostrarPop($event,VerCliente.id) ">
+          <ion-button (click)="mostrarPop($event,VerCliente) ">
 
             <img src="/assets/icon/iconsP1.png">
 

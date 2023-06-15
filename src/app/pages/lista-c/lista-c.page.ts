@@ -35,13 +35,13 @@ export class ListaCPage implements OnInit {
 
   }
 
-  async mostrarPop(evento: any, idCliente: string) {
+  async mostrarPop(evento: any, cliente: ClienteI) {
 
     const popover = await this.popoverController.create({
       component: PopInfoComponent,
       event: evento,
       mode: 'ios',
-      componentProps: { id: idCliente },
+      componentProps: {cliente: cliente },
 
     });
     return await popover.present();
@@ -59,6 +59,7 @@ export class ListaCPage implements OnInit {
 
     this.database.getCollection<ClienteI>('Clientes').subscribe(res => {
       this.VerCliente = res;
+
 
     this.InteraccionService.cerrarLoading()
       // this.BuscarClientes = res;
@@ -86,6 +87,10 @@ this.BuscarClientes = event.detail.value;
 
 
 
+
+function orderBy() {
+  throw new Error('Function not implemented.');
+}
     // const Buscar = event.target.value;
     // if (Buscar && Buscar.trim() != '') {
     //   // this.BuscarClientes = structuredClone(this.VerCliente);

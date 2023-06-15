@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ClienteI } from 'src/app/commons/interface/interfaceC';
+import { InteraccionService } from '../../services/interaccion.service';
 
 @Component({
   selector: 'app-ver-cliente',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerClientePage implements OnInit {
 
-  constructor() { }
+  @Input() cliente!: ClienteI;
+
+
+
+
+  constructor( public ModalController:ModalController,
+              public interacion:InteraccionService) { }
 
   ngOnInit() {
+    console.log(this.cliente)
   }
+
+
+  salir(){
+    this.ModalController.dismiss();
+    this.interacion.Cerrarpopover()
+
+   }
 
 }

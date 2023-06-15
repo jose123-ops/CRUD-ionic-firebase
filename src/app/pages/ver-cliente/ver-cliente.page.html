@@ -1,55 +1,49 @@
-<ion-header>
+<app-header titulo="Vista de Clientes"></app-header>
 
-  <ion-buttons  slot="start" color="danger">
+<ion-content [fullscreen]="true">
 
-    <ion-button  defaultHref="/">
-      <ion-icon name="close-outline" ></ion-icon>
-    </ion-button>
-    <ion-title >Agregar Clientes</ion-title>
-  </ion-buttons>
-</ion-header>
-
-<ion-content [fullscreen]="true" >
-
-
+  <ion-input></ion-input>
 
   <ion-list>
     <ion-item>
-<ion-label position="floating">Nombre</ion-label>
-<ion-input   type="text" ></ion-input>
-</ion-item>
+      <ion-label>
+        <h2>Nombre</h2>
+      <h1>{{cliente.nombre}}</h1>
+    </ion-label>
+    </ion-item>
 
-<ion-item>
-<ion-label position="floating">Apellido</ion-label>
-<ion-input type="text" class="redondeado"  ></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Apellido</h2>
+      <h1>{{cliente.apellido}}</h1>
+    </ion-label>
+    </ion-item>
 
-<ion-item>
-<ion-label position="floating" >Direccion</ion-label>
-<ion-input  type="text"  ></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Direccion</h2>
+      <h1>{{cliente.direccion}}</h1>
+    </ion-label>
+    </ion-item>
 
-<ion-item>
-<ion-label position="floating">Cedula</ion-label>
-<ion-input  placeholder="00-000000-0000A" type="text"></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Cedula</h2>
+      <h1>{{cliente.cedula}}</h1>
+    </ion-label>
+    </ion-item>
 
-<ion-item>
-<ion-label position="floating" >Correo electrinico</ion-label>
-<ion-input placeholder="jjjj123@gmail.com" type="text"></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Correo</h2>
+      <h1>{{cliente.correo}}</h1>
+    </ion-label>
+    </ion-item>
 
-<ion-item>
-<ion-label position="floating" >Fecha</ion-label>
-<ion-input>
-  <!-- <ion-datetime ></ion-datetime> -->
-
-</ion-input>
-</ion-item>
 
   </ion-list>
-  <ion-button  class="top" size="default">guardar
-    <ion-icon slot="start" name="save-outline"></ion-icon>
+  <ion-button (click)="salir()" class="top" size="default">salir
+    <ion-icon slot="end" name="close"></ion-icon>
   </ion-button>
 
 </ion-content>

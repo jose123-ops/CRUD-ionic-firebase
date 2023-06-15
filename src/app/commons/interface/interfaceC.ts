@@ -5,5 +5,5 @@ export interface ClienteI{
     direccion: string;
     cedula:string;
     correo:string;
-    fecha: string;
+    fecha: Date;
 }

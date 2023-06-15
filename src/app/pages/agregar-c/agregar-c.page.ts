@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import { IonDatetime, ModalController, NavController } from '@ionic/angular';
 import { ClienteI } from 'src/app/commons/interface/interfaceC';
 import { ClienteSService } from 'src/app/services/cliente-s.service';
 import { InteraccionService } from 'src/app/services/interaccion.service';
@@ -18,7 +18,7 @@ export class AgregarCPage implements OnInit {
     direccion: '',
     cedula: '',
     correo: '',
-    fecha: ''
+    fecha:new Date
   }
 
   constructor(private ModalController:ModalController,
@@ -33,22 +33,22 @@ export class AgregarCPage implements OnInit {
 
 
   }
- salir(){
-  this.ModalController.dismiss();
- }
-
 crearcliente(){
 
-this.interaccion.presentLoading('guardando....')
+// this.interaccion.presentLoading('guardando....')
 
   const path = 'Clientes';
   const id = this.database.getId();
   this.datos.id =id;
 
   this.database.crearC(this.datos , path, id).then((res)=>{
+    console.log(' con exito ->')
 
-    this.interaccion.cerrarLoading()
+    // this.interaccion.cerrarLoading()
     this.interaccion.presentToast('guardado con exito')
+    this.ModalController.dismiss();
+
+
   })
 
  }

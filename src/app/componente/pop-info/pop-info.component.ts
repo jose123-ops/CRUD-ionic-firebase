@@ -20,16 +20,17 @@ export class PopInfoComponent implements OnInit {
 
   PopoverController: any
 
-  @Input() id: string = "";
-  datos: ClienteI = {
-    id: '',
-    nombre: '',
-    apellido: '',
-    direccion: '',
-    cedula: '',
-    correo: '',
-    fecha: ''
-  }
+  @Input() cliente!: ClienteI;
+
+  // datos: ClienteI = {
+  //   id: '',
+  //   nombre: '',
+  //   apellido: '',
+  //   direccion: '',
+  //   cedula: '',
+  //   correo: '',
+  //   fecha: ''
+  // }
 
 
 
@@ -38,12 +39,14 @@ export class PopInfoComponent implements OnInit {
     private interaccion: InteraccionService,) { }
 
   ngOnInit() {
-    console.log(this.id)
+    console.log(this.cliente)
   }
 
   async abrirModalE() {
     const modal = await this.modalController.create({
-      component: EditarCPage
+      component: EditarCPage,
+      componentProps: {cliente: this.cliente }
+
     });
     await modal.present()
   }
@@ -51,7 +54,8 @@ export class PopInfoComponent implements OnInit {
 
   async abrirModalV() {
     const modalv = await this.modalController.create({
-      component: VerClientePage
+      component: VerClientePage,
+      componentProps: {cliente: this.cliente }
     })
     await modalv.present()
   }
@@ -75,7 +79,7 @@ export class PopInfoComponent implements OnInit {
         console.log('confirm ok')
 
         const path = 'Clientes';
-        this.database.EliminarC(path, this.id,).then((res) => {
+        this.database.EliminarC(path, this.cliente.id,).then((res) => {
 
           this.interaccion.presentToast('Eliminado con exito')
           this.interaccion.Cerrarpopover()

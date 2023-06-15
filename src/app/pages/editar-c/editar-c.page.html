@@ -1,44 +1,38 @@
-<ion-header>
-
-  <ion-buttons slot="start" color="secundary">
-    <ion-back-button (click)="salir()" text="regresar" defaultHref="/">
-    </ion-back-button>
-    <ion-title>Actualizar Datos</ion-title>
-  </ion-buttons>
-</ion-header>
+<app-header titulo="Agregando Clientes"></app-header>
 
 <ion-content [fullscreen]="true">
 
 
   <ion-list>
-    <ion-item>
-<ion-label position="floating">Nombre</ion-label>
-<ion-input formControlName="nombre"   type="text" ></ion-input>
+    <ion-item *ngIf="cliente">
+<ion-label position="floating" >Nombre</ion-label>
+<ion-input [(ngModel)]="cliente.nombre"></ion-input>
+
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Apellido</ion-label>
-<ion-input formControlName="apellido"  type="text" class="redondeado"  ></ion-input>
+<ion-input [(ngModel)]="cliente.apellido"  type="text" class="redondeado"  ></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Direccion</ion-label>
-<ion-input formControlName="Direccion"  type="text"  ></ion-input>
+<ion-input [(ngModel)]="cliente.direccion" type="text"  ></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Cedula</ion-label>
-<ion-input  placeholder="00-000000-0000A" type="text"></ion-input>
+<ion-input [(ngModel)]="cliente.cedula"type="text"></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Correo electrinico</ion-label>
-<ion-input formControlName="correo" placeholder="jjjj123@gmail.com" type="text"></ion-input>
+<ion-input [(ngModel)]="cliente.correo" type="text"></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="floating">Fecha</ion-label>
-<ion-input formControlName="fecha" type="text"></ion-input>
+<ion-input [(ngModel)]="cliente.fecha"  type="text"></ion-input>
 </ion-item>
 
   </ion-list>

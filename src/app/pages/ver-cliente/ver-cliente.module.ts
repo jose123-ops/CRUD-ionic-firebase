@@ -15,6 +15,7 @@ import { ComponenteModule } from 'src/app/componente/componente.module';
     FormsModule,
     IonicModule,
     VerClientePageRoutingModule,
+    ComponenteModule
 
 
   ],

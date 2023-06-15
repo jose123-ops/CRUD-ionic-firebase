@@ -1,13 +1,4 @@
-<ion-header>
-
-  <ion-buttons (click)="salir()" slot="start" color="danger">
-
-    <ion-button  defaultHref="/">
-      <ion-icon name="close-outline" ></ion-icon>
-    </ion-button>
-    <ion-title >Agregar Clientes</ion-title>
-  </ion-buttons>
-</ion-header>
+<app-header titulo="Agregando Clientes"></app-header>
 
 <ion-content [fullscreen]="true">
 
@@ -36,15 +27,7 @@
 <ion-item>
 <ion-label position="floating">Correo electrinico</ion-label>
 <ion-input [(ngModel)]="datos.correo"placeholder="jjjj123@gmail.com" type="text"></ion-input>
-</ion-item>
 
-<ion-item>
-<ion-label position="floating">Fecha</ion-label>
-<ion-input [(ngModel)]="datos.fecha" type="date">
-  <!-- <ion-datetime ></ion-datetime> -->
-
-
-</ion-input>
 </ion-item>
 
   </ion-list>

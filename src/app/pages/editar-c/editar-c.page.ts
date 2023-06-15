@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { ClienteI } from 'src/app/commons/interface/interfaceC';
 import { ClienteSService } from 'src/app/services/cliente-s.service';
+import { InteraccionService } from 'src/app/services/interaccion.service';
 
 @Component({
   selector: 'app-editar-c',
@@ -11,48 +12,36 @@ import { ClienteSService } from 'src/app/services/cliente-s.service';
 })
 export class EditarCPage implements OnInit {
 
-  datos: ClienteI= {
-    id:'',
-    nombre: '',
-    apellido: '',
-    direccion: '',
-    cedula: '',
-    correo: '',
-    fecha: ''
-  }
+  @Input() cliente!: ClienteI;
 
-  form = new FormGroup({
-    nombre: new FormControl('', Validators.required),
-    apellido: new FormControl('', Validators.required),
-    Direccion: new FormControl('', Validators.required),
-    Cedula: new FormControl('', Validators.required),
-    Correo: new FormControl('', Validators.required),
-    Fecha: new FormControl('', Validators.required),
-  });
 
-  constructor( private modalController: ModalController,
-              private database:ClienteSService) { }
+  constructor(private modalController: ModalController,
+    private database: ClienteSService,
+    private interaccion: InteraccionService) { }
 
   ngOnInit() {
-    this.form.patchValue(this.datos as any)
+
 
   }
-  salir(){
-    this.modalController.dismiss();
-   }
+
+
+  actualizaC() {
+
+    this.interaccion.presentLoading('Actualizando....')
+
+    const path = 'Clientes';
+
+    this.database.ActualizarC(this.cliente, path, this.cliente.id).then((res) => {
+
+      this.interaccion.cerrarLoading()
+      this.interaccion.presentToast('Actualizado con exito')
+      this.modalController.dismiss();
+      this.interaccion.Cerrarpopover()
 
 
 
-  actualizaC(){
 
-  const path = 'Clientes';
-  const id = this.database.getId();
-  this.datos.id =id;
-
-   this.database.ActualizarC(this.datos , path, id).then((res)=>{
-    console.log(' con exito ->');
-
-   } );
+    });
 
 
   }

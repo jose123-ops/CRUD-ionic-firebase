@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { EditarCPageRoutingModule } from './editar-c-routing.module';
 
 import { EditarCPage } from './editar-c.page';
+import { ComponenteModule } from 'src/app/componente/componente.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditarCPageRoutingModule
+    EditarCPageRoutingModule,
+    ComponenteModule
   ],
   declarations: [EditarCPage]
 })
