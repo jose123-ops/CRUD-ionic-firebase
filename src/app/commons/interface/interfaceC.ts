@@ -1,3 +1,5 @@
+import { Data } from "@angular/router";
+
 export interface ClienteI{
     id:string;
     nombre: string;

@@ -24,14 +24,26 @@
 <ion-input [(ngModel)]="datos.cedula" placeholder="00-000000-0000A" type="text"></ion-input>
 </ion-item>
 
+<form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
 <ion-item>
-<ion-label position="floating">Correo electrinico</ion-label>
-<ion-input [(ngModel)]="datos.correo"placeholder="jjjj123@gmail.com" type="text"></ion-input>
+<ion-label color="danger" *ngIf="" >formulario Valido:{{formulario.valid} incorrecto}      </ion-label>
+
+<ion-label position="floating">Correo electronico</ion-label>
+<ion-input type="email"
+           name="email"
+          [(ngModel)]="datos.correo"
+           pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+           required
+           placeholder="jjjj123@gmail.com"
+           ></ion-input>
+
+           <!-- <ion-label color="danger" *ngIf=Correo.controls.correo.errors?.Correo && (correo.touched || correo.dirty)
+           >* El email no es válido.</ion-label> -->
 
 </ion-item>
-
+</form>
   </ion-list>
-  <ion-button (click)="crearcliente()"  class="top" size="default">guardar
+  <ion-button type="submit" (click)="crearcliente()"  class="top" size="default">guardar
     <ion-icon slot="start" name="save-outline"></ion-icon>
   </ion-button>
 
