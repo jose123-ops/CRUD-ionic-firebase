@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { InteraccionService } from '../../services/interaccion.service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +11,14 @@ export class HeaderComponent  implements OnInit {
 
   @Input()titulo!: string;
 
-  constructor() { }
+  constructor( private ModalController:ModalController,
+              private interacion:InteraccionService ) { }
 
   ngOnInit() {}
 
+
+  salir(){
+    this.ModalController.dismiss();
+    this.interacion.Cerrarpopover()
+  }
 }

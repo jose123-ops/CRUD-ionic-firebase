@@ -24,7 +24,8 @@ export class ListaCPage implements OnInit {
   constructor(public popoverController: PopoverController,
     private modalController: ModalController,
     private database: ClienteSService,
-    private InteraccionService:InteraccionService
+    private InteraccionService:InteraccionService,
+    private loadingController: LoadingController
   ) {
 
   }
@@ -54,14 +55,20 @@ export class ListaCPage implements OnInit {
     await modal.present()
   }
 
-  getClienteV() {
-    this.InteraccionService.presentLoading('Espere por favor')
+  async getClienteV() {
+
+  const loading =  await this.loadingController.create({
+      message:'cargando',
+    });
+    await loading.present();
+    // this.InteraccionService.presentLoading('Espere por favor')
 
     this.database.getCollection<ClienteI>('Clientes').subscribe(res => {
       this.VerCliente = res;
 
 
-    this.InteraccionService.cerrarLoading()
+    // this.InteraccionService.cerrarLoading()
+    loading.dismiss();
       // this.BuscarClientes = res;
     })
 

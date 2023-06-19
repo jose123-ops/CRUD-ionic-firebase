@@ -22,11 +22,4 @@ export class VerClientePage implements OnInit {
     console.log(this.cliente)
   }
 
-
-  salir(){
-    this.ModalController.dismiss();
-    this.interacion.Cerrarpopover()
-
-   }
-
 }

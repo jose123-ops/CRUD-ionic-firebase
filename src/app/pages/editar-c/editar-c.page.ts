@@ -15,6 +15,7 @@ export class EditarCPage implements OnInit {
   @Input() cliente!: ClienteI;
 
 
+
   constructor(private modalController: ModalController,
     private database: ClienteSService,
     private interaccion: InteraccionService) { }
@@ -46,5 +47,12 @@ export class EditarCPage implements OnInit {
 
   }
 
+
+  isDisable = true
+
+  ButtonState(){
+  this.isDisable  = !this.isDisable
+
+   }
 
 }

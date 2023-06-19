@@ -5,46 +5,68 @@
 
   <ion-list>
     <ion-item>
-<ion-label position="floating">Nombre</ion-label>
-<ion-input [(ngModel)]="datos.nombre"  type="text" ></ion-input>
-</ion-item>
-
-<ion-item>
-<ion-label position="floating">Apellido</ion-label>
-<ion-input [(ngModel)]="datos.apellido" type="text" class="redondeado"  ></ion-input>
-</ion-item>
-
-<ion-item>
-<ion-label position="floating">Direccion</ion-label>
-<ion-input [(ngModel)]="datos.direccion" type="text" name="cedula" #direccion="ngModel" required  ></ion-input>
-</ion-item>
-
-<div class="form-error" *ngIf="direccion.errors && (direccion.dirty || direccion.touched)">
-  <ion-label color="danger" [hidden]="direccion.errors['cedula']">Campo requerido</ion-label>
-  </div>
+      <ion-label>Nombre:</ion-label>
+      <ion-input [(ngModel)]="datos.nombre" type="text" name="nombre" #nombre="ngModel" required></ion-input>
 
 
-<ion-item>
-<ion-label position="floating">Cedula</ion-label>
-<ion-input [(ngModel)]="datos.cedula" placeholder="00-000000-0000A" type="text" name="cedula" #cedula="ngModel" required></ion-input>
-</ion-item>
+      <div class="form-error" *ngIf="nombre.errors && (nombre.dirty || nombre.touched)">
+        <ion-label color="danger" [hidden]="nombre.errors['nombre']">Campo requerido</ion-label>
+      </div>
 
-<div class="form-error" *ngIf="cedula.errors && (cedula.dirty || cedula.touched)">
-  <ion-label color="danger" [hidden]="cedula.errors['cedula']">Campo requerido</ion-label>
-  </div>
+    </ion-item>
 
-<ion-item>
+    <ion-item>
 
-<ion-label position="floating">Correo electronico</ion-label>
-<ion-input id="correoV" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="text" [(ngModel)]="datos.correo" name="correo" #correo="ngModel" required email></ion-input>
-</ion-item>
+      <ion-label>Apellido:</ion-label>
+      <ion-input [(ngModel)]="datos.apellido" type="text" name="apellido" #apellido="ngModel" required></ion-input>
 
-<div class="form-error" *ngIf="correo.errors && (correo.dirty || correo.touched)">
+      <div class="form-error" *ngIf="apellido.errors && (apellido.dirty || apellido.touched)">
+        <ion-label color="danger" [hidden]="apellido.errors['nombre']">Campo requerido</ion-label>
+      </div>
 
-</div>
+    </ion-item>
 
+
+
+    <ion-item>
+      <ion-label>Direccion:</ion-label>
+      <ion-input [(ngModel)]="datos.direccion" type="text" name="cedula" #direccion="ngModel" required></ion-input>
+
+      <div class="form-error" *ngIf="direccion.errors && (direccion.dirty || direccion.touched)">
+        <ion-label color="danger" [hidden]="direccion.errors['cedula']">Campo requerido</ion-label>
+      </div>
+    </ion-item>
+
+
+
+
+    <ion-item>
+      <ion-label>Cedula:</ion-label>
+      <ion-input [(ngModel)]="datos.cedula" placeholder="00-000000-0000A" type="text" name="cedula" #cedula="ngModel"
+        required></ion-input>
+
+      <div class="form-error" *ngIf="cedula.errors && (cedula.dirty || cedula.touched)">
+        <ion-label color="danger" [hidden]="cedula.errors['cedula']">Campo requerido</ion-label>
+      </div>
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label>Correo electronico:</ion-label>
+      <ion-input pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="text"
+        [(ngModel)]="datos.correo" name="correo" #correo="ngModel" required email></ion-input>
+
+      <div class="form-error" *ngIf="correo.errors && (correo.dirty || correo.touched)">
+        <ion-label color="danger" [hidden]="correo.errors['correo']">correo invalido</ion-label>
+      </div>
+
+    </ion-item>
   </ion-list>
-  <ion-button id="btnAgregar" type="submit" (click)="crearcliente()" disabled="correo" class="top" size="default">guardar
+
+  <ion-button (click)="crearcliente()"
+    [disabled]="correo.errors || nombre.errors || apellido.errors || cedula.errors || direccion.errors" class="top"
+    size="default">guardar
     <ion-icon slot="start" name="save-outline"></ion-icon>
   </ion-button>
 

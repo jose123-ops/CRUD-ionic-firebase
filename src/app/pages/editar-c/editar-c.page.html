@@ -3,40 +3,70 @@
 <ion-content [fullscreen]="true">
 
 
-  <ion-list>
-    <ion-item *ngIf="cliente">
-<ion-label position="floating" >Nombre</ion-label>
-<ion-input [(ngModel)]="cliente.nombre"></ion-input>
+<ion-list>
+    <ion-item>
+<ion-label>Nombre:</ion-label>
+<ion-input [(ngModel)]="cliente.nombre"  type="text"  name="nombre" #nombre="ngModel" required></ion-input>
+
+
+<div class="form-error" *ngIf="nombre.errors && (nombre.dirty || nombre.touched)">
+  <ion-label color="danger" [hidden]="nombre.errors['nombre']">Campo requerido</ion-label>
+  </div>
 
 </ion-item>
 
 <ion-item>
-<ion-label position="floating">Apellido</ion-label>
-<ion-input [(ngModel)]="cliente.apellido"  type="text" class="redondeado"  ></ion-input>
+<ion-label>Apellido:</ion-label>
+<ion-input [(ngModel)]="cliente.apellido" type="text" name="apellido" #apellido="ngModel" required ></ion-input>
+
+<div class="form-error" *ngIf="apellido.errors && (apellido.dirty || apellido.touched)">
+  <ion-label color="danger" [hidden]="apellido.errors['nombre']">Campo requerido</ion-label>
+  </div>
+
 </ion-item>
+
+
 
 <ion-item>
-<ion-label position="floating">Direccion</ion-label>
-<ion-input [(ngModel)]="cliente.direccion" type="text"  ></ion-input>
+<ion-label >Direccion:</ion-label>
+<ion-input [(ngModel)]="cliente.direccion" type="text" name="cedula" #direccion="ngModel" required  ></ion-input>
+
+<div class="form-error" *ngIf="direccion.errors && (direccion.dirty || direccion.touched)">
+  <ion-label color="danger" [hidden]="direccion.errors['cedula']">Campo requerido</ion-label>
+  </div>
 </ion-item>
+
+
+
 
 <ion-item>
-<ion-label position="floating">Cedula</ion-label>
-<ion-input [(ngModel)]="cliente.cedula"type="text"></ion-input>
+<ion-label>Cedula:</ion-label>
+<ion-input [(ngModel)]="cliente.cedula" placeholder="00-000000-0000A" type="text" name="cedula" #cedula="ngModel" required ></ion-input>
+
+<div class="form-error" *ngIf="cedula.errors && (cedula.dirty || cedula.touched)">
+  <ion-label color="danger" [hidden]="cedula.errors['cedula']">Campo requerido</ion-label>
+  </div>
+
 </ion-item>
+
+
+
 
 <ion-item>
-<ion-label position="floating">Correo electrinico</ion-label>
-<ion-input [(ngModel)]="cliente.correo" type="text"></ion-input>
-</ion-item>
 
-<ion-item>
-<ion-label position="floating">Fecha</ion-label>
-<ion-input [(ngModel)]="cliente.fecha"  type="text"></ion-input>
-</ion-item>
+<ion-label >Correo electronico:</ion-label>
+<ion-input pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="text"
+ [(ngModel)]="cliente.correo" name="correo" #correo="ngModel" required email></ion-input>
 
+<div class="form-error" *ngIf="correo.errors && (correo.dirty || correo.touched)">
+  <ion-label color="danger" [hidden]="correo.errors['correo']">correo invalido</ion-label>
+</div>
+
+</ion-item>
   </ion-list>
-  <ion-button (click)="actualizaC()"class="top" size="default">Actualizar
+
+
+  <ion-button class="top" size="default" (click)="actualizaC()" [disabled]="correo.errors || nombre.errors || apellido.errors || cedula.errors || direccion.errors"  >Actualizar
     <ion-icon slot="start" name="arrow-redo-outline"></ion-icon>
   </ion-button>
 

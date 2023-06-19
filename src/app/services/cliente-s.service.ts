@@ -24,7 +24,7 @@ getId(){
 
 // mostrar datos
   getCollection<tipo>(path: string) {
-    const collection = this.firestore.collection<tipo>(path);
+    const collection = this.firestore.collection<tipo>(path, ref => ref.orderBy('fecha', 'asc'));
     return collection.valueChanges();
   }
 
