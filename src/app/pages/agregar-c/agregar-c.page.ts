@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, NavController } from '@ionic/angular';
 import { ClienteI } from 'src/app/commons/interface/interfaceC';
 import { ClienteSService } from 'src/app/services/cliente-s.service';
 import { InteraccionService } from 'src/app/services/interaccion.service';
-import { FormControl, FormGroup, Validators  } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-agregar-c',
@@ -12,6 +12,7 @@ import { FormControl, FormGroup, Validators  } from '@angular/forms';
 })
 export class AgregarCPage implements OnInit {
 
+  validacion: any;
 
   datos: ClienteI= {
     id:'',
@@ -28,10 +29,15 @@ export class AgregarCPage implements OnInit {
   constructor(private ModalController:ModalController,
               private database:ClienteSService,
               private interaccion:InteraccionService,
+              private navCtrl:   NavController,
+              private alertCtrl: AlertController
          ) {
 
+this.validacion = {};
 
               }
+
+              ionViewDidLoad(){ }
 
   ngOnInit() {
 
@@ -52,13 +58,9 @@ crearcliente(){
     this.interaccion.presentToast('guardado con exito')
     this.ModalController.dismiss();
 
-
   })
-
  }
 
- onSubmitTemplate(){
-  console.log('Form Submit')
- }
+
 
 }

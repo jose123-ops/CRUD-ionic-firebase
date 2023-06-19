@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
 import { PipesModule } from './pipes/pipes.module';
 
+
 @NgModule({
   declarations: [AppComponent,
   ],
@@ -21,7 +22,9 @@ import { PipesModule } from './pipes/pipes.module';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    PipesModule],
+    PipesModule,
+   
+    ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
 import { IonicModule } from '@ionic/angular';
 
 import { AgregarCPageRoutingModule } from './agregar-c-routing.module';
@@ -15,7 +16,8 @@ import { ComponenteModule } from 'src/app/componente/componente.module';
     FormsModule,
     IonicModule,
     AgregarCPageRoutingModule,
-    ComponenteModule
+    ComponenteModule,
+   
   ],
   declarations: [AgregarCPage]
 })

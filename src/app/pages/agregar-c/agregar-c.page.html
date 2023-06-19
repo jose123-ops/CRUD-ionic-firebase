@@ -16,34 +16,35 @@
 
 <ion-item>
 <ion-label position="floating">Direccion</ion-label>
-<ion-input [(ngModel)]="datos.direccion" type="text"  ></ion-input>
+<ion-input [(ngModel)]="datos.direccion" type="text" name="cedula" #direccion="ngModel" required  ></ion-input>
 </ion-item>
+
+<div class="form-error" *ngIf="direccion.errors && (direccion.dirty || direccion.touched)">
+  <ion-label color="danger" [hidden]="direccion.errors['cedula']">Campo requerido</ion-label>
+  </div>
+
 
 <ion-item>
 <ion-label position="floating">Cedula</ion-label>
-<ion-input [(ngModel)]="datos.cedula" placeholder="00-000000-0000A" type="text"></ion-input>
+<ion-input [(ngModel)]="datos.cedula" placeholder="00-000000-0000A" type="text" name="cedula" #cedula="ngModel" required></ion-input>
 </ion-item>
 
-<form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+<div class="form-error" *ngIf="cedula.errors && (cedula.dirty || cedula.touched)">
+  <ion-label color="danger" [hidden]="cedula.errors['cedula']">Campo requerido</ion-label>
+  </div>
+
 <ion-item>
-<ion-label color="danger">formulario Valido:{{formulario.valid}}      </ion-label>
 
 <ion-label position="floating">Correo electronico</ion-label>
-<ion-input type="email"
-           name="email"
-          [(ngModel)]="datos.correo"
-           pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-           required
-           placeholder="jjjj123@gmail.com"
-           ></ion-input>
-
-           <!-- <ion-label color="danger" *ngIf=Correo.controls.correo.errors?.Correo && (correo.touched || correo.dirty)
-           >* El email no es válido.</ion-label> -->
-
+<ion-input id="correoV" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="text" [(ngModel)]="datos.correo" name="correo" #correo="ngModel" required email></ion-input>
 </ion-item>
-</form>
+
+<div class="form-error" *ngIf="correo.errors && (correo.dirty || correo.touched)">
+
+</div>
+
   </ion-list>
-  <ion-button type="submit" (click)="crearcliente()"  class="top" size="default">guardar
+  <ion-button id="btnAgregar" type="submit" (click)="crearcliente()" disabled="correo" class="top" size="default">guardar
     <ion-icon slot="start" name="save-outline"></ion-icon>
   </ion-button>
 
